@@ -1,0 +1,397 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Computational Systems Neuroscience researcher at Oxford. Research, publications, CV, and contact." />
+  <title> Isabel Lau| Computational Systems Neuroscience</title>
+
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #102033;
+      --muted: #5c6b7a;
+      --line: #e6ebf2;
+      --accent: #173b63;
+      --accent-2: #4d79a8;
+      --shadow: 0 18px 50px rgba(16, 32, 51, 0.08);
+      --radius: 22px;
+      --max: 1050px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #fbfcfe 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 248, 251, 0.8);
+      border-bottom: 1px solid rgba(230, 235, 242, 0.8);
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .hero {
+      padding: 68px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .side-card,
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+      min-height: 100%;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+      background: #f8fbff;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 62ch;
+      margin: 0 0 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      background: #fff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(16, 32, 51, 0.08);
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .side-card {
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 220px auto;
+    }
+
+    .banner {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(77,121,168,0.35), transparent 30%),
+        radial-gradient(circle at 80% 35%, rgba(23,59,99,0.32), transparent 28%),
+        linear-gradient(135deg, #eaf1fa 0%, #f8fbff 50%, #edf4fb 100%);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(transparent 92%, rgba(16,32,51,0.06) 93%),
+        linear-gradient(90deg, transparent 92%, rgba(16,32,51,0.06) 93%);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,1));
+      opacity: 0.25;
+    }
+
+    .portrait {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #173b63, #4d79a8);
+      flex: 0 0 auto;
+    }
+
+    .portrait h2 {
+      font-size: 1.02rem;
+      margin: 0 0 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .portrait p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 14px 0 0;
+    }
+
+    .section-card {
+      padding: 28px 30px;
+      margin-top: 18px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li { margin: 8px 0; }
+
+    .pub {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .pub-item {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .pub-item:first-child { border-top: 0; padding-top: 0; }
+
+    .pub-title {
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+
+    .pub-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .contact-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 34px 0 40px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .hero-card { padding: 26px; }
+      .section-card { padding: 24px; }
+      .nav { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Isabel Lau</div>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">DPhil candidate · University of Oxford</span>
+          <h1>Computational neuroscience, behaviour, and psychiatry.</h1>
+          <p class="subtitle">
+            I study how dopamine systems shape perception and decision-making, with a focus on computational approaches to systems networking.
+            My background spans behavioural psychology, computational neuroscience, and clinical research.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:isabel.lau@dpag.ox.ac.uk">Email me</a>
+            <a class="btn" href="https://scholar.google.com/citations?user=V_bozOQAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <div class="banner"></div>
+          <div class="portrait">
+            <div class="avatar"></div>
+            <div>
+              <h2>Isabel Lau</h2>
+              <p>Computational Systems Neuroscience · Oxford</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-card">
+        <h2 class="section-title">About</h2>
+        <p class="subtitle" style="margin: 0;">
+         I am a DPhil candidate in Interdisciplinary Bioscience at the University of Oxford, working in computational systems neuroscience. My research focuses on modelling system-level dopamine mechanisms and their role in perception and decision-making.
+         I am particularly interested in interdisciplinary approaches bridging neuroscience, psychology, mathematics, and engineering.
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="section-card">
+        <h2 class="section-title">Research interests</h2>
+        <ul class="list">
+          <li>Computational models of cognition and behaviour</li>
+          <li>Neuropsychiatric drug effects and neuromodulation</li>
+          <li>Psychophysics and behavioural experiment design</li>
+          <li>Clinical and translational neuroscience</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-card">
+        <h2 class="section-title">Publications / outputs</h2>
+        <div class="pub">
+          <div class="pub-item">
+            <p class="pub-title">Title of paper or poster</p>
+            <p class="pub-meta">Journal / conference, year · short description</p>
+          </div>
+          <div class="pub-item">
+            <p class="pub-title">Another output</p>
+            <p class="pub-meta">Preprint / poster / talk · link when ready</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv" class="grid-2">
+      <div class="section-card">
+        <h2 class="section-title">CV</h2>
+        <p class="subtitle" style="margin: 0;">
+          Keep a short version on the site and a downloadable PDF for recruiters, collaborators, and supervisors.
+        </p>
+      </div>
+
+      <div class="section-card" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-box">
+          <div><strong>Email:</strong> youremail@domain.com</div>
+          <div><strong>Scholar:</strong> scholar.google.com</div>
+          <div><strong>LinkedIn:</strong> linkedin.com/in/yourname</div>
+          <div><strong>GitHub:</strong> github.com/yourusername</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
