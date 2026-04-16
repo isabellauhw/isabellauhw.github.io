@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Isabel Lau — Computational systems neuroscience researcher at Oxford. Education, research, publications, CV, and contact." />
+  <meta name="description" content="Isabel Lau — Computational systems neuroscience researcher at Oxford. Education, research, publications, and contact." />
   <title>Isabel Lau | Computational Systems Neuroscience</title>
 
   <style>
@@ -74,25 +74,46 @@
       padding: 68px 0 28px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
     .hero-card,
     .side-card,
-    .section-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
 
     .hero-card {
       padding: 34px;
       min-height: 100%;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: start; /* important */
+    }
+    
+    .side-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-self: start;
+      height: fit-content;
+    }
+    
+    .banner {
+      height: 220px;
+      flex: 0 0 220px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(77,121,168,0.35), transparent 30%),
+        radial-gradient(circle at 80% 35%, rgba(23,59,99,0.32), transparent 28%),
+        linear-gradient(135deg, #eaf1fa 0%, #f8fbff 50%, #edf4fb 100%);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    
+    .portrait {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      margin-top: 0;
     }
 
     .eyebrow {
@@ -268,12 +289,6 @@
       font-size: 0.96rem;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
     .contact-box {
       display: flex;
       flex-direction: column;
@@ -339,9 +354,6 @@
 
     @media (max-width: 860px) {
       .hero-grid,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
 
       .hero-card { padding: 26px; }
       .section-card { padding: 24px; }
@@ -508,25 +520,17 @@
       </div>
     </section>
 
-    <section class="grid-2">
-      <div class="section-card" id="cv">
-        <h2 class="section-title">CV</h2>
-        <p class="subtitle" style="margin: 0;">
-          Add your PDF as <code>cv.pdf</code> in the repository, then link it here when you are ready.
-        </p>
-      </div>
-
-      <div class="section-card" id="contact">
+    <section id="contact">
+      <div class="section-card">
         <h2 class="section-title">Contact</h2>
         <div class="contact-box">
           <div><strong>Email:</strong> <a href="mailto:isabel.lau@dpag.ox.ac.uk">isabel.lau@dpag.ox.ac.uk</a></div>
           <div><strong>Scholar:</strong> <a href="https://scholar.google.com/citations?user=V_bozOQAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a></div>
-          <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/isabel-hei-wing-lau/" target="_blank" rel="noreferrer">LinkedIn link</a></div>
-          <div><strong>GitHub:</strong> <a href="https://github.com/isabellauhw" target="_blank" rel="noreferrer">GitHub link</a></div>
+          <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Add your profile link</a></div>
+          <div><strong>GitHub:</strong> <a href="https://github.com/" target="_blank" rel="noreferrer">Add your GitHub link</a></div>
         </div>
       </div>
     </section>
-
     <footer>
       © <span id="year"></span> Isabel Lau
     </footer>
